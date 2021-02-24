@@ -1,6 +1,10 @@
 package com.studentsfp.devenvironment.unittesting.helper;
 
+import com.studentsfp.devenvironment.unittesting.data.Item;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * com.studentsfp.devenvironment.unittesting.helper;
@@ -23,5 +27,14 @@ public class GenericFileUtils {
 
     public static FileWriter getWriter(String file) throws IOException {
         return new FileWriter(getResourcePath(file));
+    }
+
+
+    public static Item getMaxHurricane(InputStream inputReader) {
+        return new Item();
+    }
+
+    public List<Item> getCity() {
+        return new ArrayList<>();
     }
 }

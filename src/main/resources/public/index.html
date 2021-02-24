@@ -36,7 +36,8 @@
             });
     };
     const inject = (element, content) => {
-        document.getElementById(element).insertAdjacentHTML("afterbegin", content);
+        //document.getElementById(element).insertAdjacentHTML("afterbegin", content);
+        document.getElementById(element).innerHTML=  content;
     };
     const loadCity = (city) => {
         getData("/rest/api/v1/city/" + city, (data) => {
@@ -77,7 +78,7 @@
         const content = `
             ${data.map((item)=>{
                 return `<button class="bg-white hover:bg-gray-500 hover:text-white border  px-4 py-2 mx-0 outline-none "
-                onclick="loadCity(1)">
+                onclick="loadCity(${item.id?item.id:1})">
                 ${item.name?item.name:"Tokyo"}
             </button>`
             }).join("")}
@@ -91,6 +92,29 @@
      *   - (1p) Explica el funcionamiento de la página
      *   - (2p) Explica 3 conceptos teóricos que veas en el código y que sean de interés
      */
+
+            /*
+            * El JS lo primero que hace es coger el data a a partir de un fetch
+            * La pagina lo que hace es coger las ciudades de la lista con su nombre, el pais, su región y una descripción de la ciudad junto a una imagen (En este caso es la ciudad de Tokyo)
+            *
+            * A continuación, creamos la parte de html que da forma a la pagina y que coloca cada una de los datos dichos anteriormente de la ciudad en su lugar
+            * Acto seguido, Creamos un botón para cuando lo pulsemos se cargue y salga esa información
+            *
+            * */
+
+            /*
+            * Una de las partes interesantes del idex.html, es la parte donde cogemos la infomacion de la api rest para cargarla,
+            * donde lo que hacemos es de la información de la ciudad(name, country, region, island, description, image), cogemos esa información para que la obtenga nuestra api rest
+            *
+            * Siguiendo con el Rest, lo que es realmente interesante es la forma como se combinan los 3 lenguajes de este proyecto(JAVA, JS y HTML),
+            * ver como cuando creamos un api resto puede ser llamado en un apartado JS de un HTML, en el cual nos sirva para coger esa api
+            * que nos ayuda a coger y subir toda la información que queramos ese juego que nos dan los Rest que son Clave para que nuestra aplicación funcione desde el entorno que queremos
+            *
+            * Por ultimo lugar, un concepto interesante es el concepto del fetch, que es el que hace que podamos recibir la información que necesitamos en formato JSON
+            *
+            * */
+
+
 </script>
 </body>
 </html>

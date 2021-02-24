@@ -1,9 +1,14 @@
 package com.studentsfp.devenvironment.unittesting;
 
+import com.studentsfp.devenvironment.unittesting.data.Item;
+import com.studentsfp.devenvironment.unittesting.helper.GenericFileUtils;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
+import org.apache.commons.lang3.StringUtils;
+
 
 /**
  * TODO 0: IMPLEMENTA LAS SIGUIENTES OPERACIONES MEDIANTE TDD
@@ -26,6 +31,10 @@ class MyExamApplicationTest {
     @Test
     void serviceDataCreation() {
         try{
+            GenericFileUtils genericFileUtils = new GenericFileUtils();
+            Item item = new Item();
+            Assert.isTrue(StringUtils.equals((CharSequence) genericFileUtils,item.toString()),"Data creada");
+            logger.info("Información completada");
 
         }catch (Exception e){
             logger.error("to define");
@@ -39,8 +48,8 @@ class MyExamApplicationTest {
     @Test
     void dbLoadTester() {
         try{
-            //Object o = ExamHelper.getMaxHurricane(GenericFileUtils.getInputReader("hurricanes.csv"));
-            //Assert.notNull(o, "p1: The hurricane starts to blow your mind, concentrate!");
+            Item item = GenericFileUtils.getMaxHurricane(GenericFileUtils.getInputReader("hurricanes.csv"));
+            Assert.notNull(item, "p1: The hurricane starts to blow your mind, concentrate!");
         }catch (Exception e){
             logger.error("to define");
         }

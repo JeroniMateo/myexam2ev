@@ -18,8 +18,8 @@ El examen prueba tu capacidad de lectura de código más la capacidad básica de
 
 
 
-#### TODO: Nombre del alumno: 
-#### TODO: Self- assessment mark: 0p
+#### TODO: Nombre del alumno: Jeroni Mateo Curieses
+#### TODO: Self- assessment mark: 3.5p
 
 
 
